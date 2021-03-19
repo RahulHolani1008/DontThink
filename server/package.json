@@ -1,0 +1,31 @@
+{
+  "name": "dont-think",
+  "version": "0.0.1",
+  "description": "Just don't think",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RahulHolani1008/DontThink.git"
+  },
+  "author": "rahulholani1008@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RahulHolani1008/DontThink/issues"
+  },
+  "homepage": "https://github.com/RahulHolani1008/DontThink#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
