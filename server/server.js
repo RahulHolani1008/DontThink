@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const compression = require('compression');
 const helmet = require('helmet');
 const encryptr = require('./encryptr.js');
+const decryptr = require('./decryptr.js');
 const app = express();
 
 const routes = require("./routes/routes.js");
@@ -22,6 +23,7 @@ app.use(function (req, res, next) {
 });
 app.use(compression());
 app.use(helmet());
-app.use('*',routes)
-app.use('*', encryptr);
+app.use(decryptr);
+app.use(routes);
+app.use(encryptr);
 app.listen(8081);

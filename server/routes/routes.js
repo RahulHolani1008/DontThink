@@ -1,11 +1,8 @@
 const express = require("express");
-// const usersController = require("../controllers/users");
+const taskRoutes = require("./tasks");
+// const userRoutes = require("./users");
 const router = express.Router();
-// const authorize = require('../_helpers/authorize')
 
-router.all('*', (req,res,next) => {
-    req.responseData = "Hello";
-    next();
-})
+router.use('/tasks', taskRoutes);
 
 module.exports = router;
