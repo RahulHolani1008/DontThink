@@ -1,16 +1,16 @@
-class Task {
-    constructor(title, severity, priority, description, imageURL, dueDate) {
-        this.title = title;
-        this.severity = severity;
-        this.priority = priority;
-        this.description = description;
-        this.imageURL = imageURL;
-        this.dueDate = dueDate;
-    }
+const Task = require("../models/tasks");
 
-    save() {
-
-    }
-}
-
-module.exports = Task;
+exports.insertOrUpdate = async (req, res, next) => {
+  const newTask = new Task(req.requestData);
+  await newTask
+    .save()
+    .then((item) => {
+        req.responseData = item;
+    })
+    .catch((err) => {
+        req.responseData = "ERROR 500";
+    })
+    .finally(() => {
+        next();
+    });
+};
