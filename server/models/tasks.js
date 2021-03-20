@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const clientSchema = new Schema({
-  name: { required: true, type: String },
+const taskSchema = new Schema({
+  title: { required: true, type: String },
   deleted: { type: Boolean, default: false },
-  since: { default: Date.now(), type: Date }
+  priority: { type: Number, default: 0.24 },
+  severity: { type: Number, default: 0.85 },
+  description: { type: String, default: null },
+  dueDate: { default: null, type: Date }
 });
 
-module.exports = mongoose.model("Clients", clientSchema);
+module.exports = mongoose.model("Tasks", taskSchema);

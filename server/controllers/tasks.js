@@ -6,11 +6,10 @@ exports.insertOrUpdate = async (req, res, next) => {
     .save()
     .then((item) => {
         req.responseData = item;
+        next();
     })
     .catch((err) => {
         req.responseData = "ERROR 500";
-    })
-    .finally(() => {
         next();
-    });
+    })
 };
